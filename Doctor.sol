@@ -1,6 +1,7 @@
 pragma solidity ^0.4.0;
 import "browser/Record.sol";
 import "browser/Hospital.sol";
+
 contract Doctor {
     uint public id;
     Hospital hospital;
@@ -13,8 +14,8 @@ contract Doctor {
         hospital = Hospital(msg.sender);
     }
     
-    function addRecord(string _data, uint _rid) {
-        records.push(new Record(_rid, _data));
+    function addRecord(uint _rid, string _data, uint _ssn, string _blood_type, string _name, uint _age) {
+        records.push(new Record(_rid, _data, _ssn, _blood_type, _name, _age));
     }
     
     function contains(uint _rid) returns (bool found) {
