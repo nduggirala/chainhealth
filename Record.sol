@@ -12,4 +12,11 @@ contract Record {
         id = _id;
         data = _data;
     }
+    
+    function transfer(address newOwner) public {
+        // Only the current owner can transfer the token.
+        if (msg.sender != owner) return;
+        if (doctor.isTokenTransferOK(owner, newOwner))
+            owner = newOwner;
+    }
 }
